@@ -1,0 +1,19 @@
+{
+  "name": "polyfill-babel-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:usage": "webpack --config webpack.polyfill-usage.config.js --mode development",
+    "build:entry": "webpack --config webpack.polyfill-entry.config.js --mode development"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "core-js": "^3.21.1",
+    "prettier": "^2.6.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
