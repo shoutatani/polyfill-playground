@@ -23700,6 +23700,8 @@ var executor = function executor() {
   Promise.resolve("promiseTest").then(function (result) {
     console.log(result);
   });
+  var map = new Map();
+  map.set("key", "value");
   (0,_sub__WEBPACK_IMPORTED_MODULE_0__.sub)();
 };
 
