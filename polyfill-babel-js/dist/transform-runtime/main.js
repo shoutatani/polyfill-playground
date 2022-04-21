@@ -11,6 +11,16 @@ module.exports = __webpack_require__(/*! core-js-pure/features/map */ "./node_mo
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs3/core-js/object/define-property.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/core-js/object/define-property.js ***!
+  \*******************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! core-js-pure/features/object/define-property */ "./node_modules/core-js-pure/features/object/define-property.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs3/core-js/promise.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs3/core-js/promise.js ***!
@@ -35,8 +45,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/promise */ "./node_modules/@babel/runtime-corejs3/core-js/promise.js");
 /* harmony import */ var _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0__);
 
-var sub = function sub() {
-  return _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default().resolve("subTest").then(function (result) {
+var sub = function sub(value) {
+  return _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default().resolve(value).then(function (result) {
     console.log(result);
   });
 };
@@ -50,6 +60,19 @@ var sub = function sub() {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var parent = __webpack_require__(/*! ../../stable/map */ "./node_modules/core-js-pure/stable/map/index.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/actual/object/define-property.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js-pure/actual/object/define-property.js ***!
+  \********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../stable/object/define-property */ "./node_modules/core-js-pure/stable/object/define-property.js");
 
 module.exports = parent;
 
@@ -82,6 +105,26 @@ __webpack_require__(/*! ../../modules/es.string.iterator */ "./node_modules/core
 var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
 
 module.exports = path.Map;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/es/object/define-property.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js-pure/es/object/define-property.js ***!
+  \****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es.object.define-property */ "./node_modules/core-js-pure/modules/es.object.define-property.js");
+var path = __webpack_require__(/*! ../../internals/path */ "./node_modules/core-js-pure/internals/path.js");
+
+var Object = path.Object;
+
+var defineProperty = module.exports = function defineProperty(it, key, desc) {
+  return Object.defineProperty(it, key, desc);
+};
+
+if (Object.defineProperty.sham) defineProperty.sham = true;
 
 
 /***/ }),
@@ -136,6 +179,19 @@ __webpack_require__(/*! ../../modules/esnext.map.update */ "./node_modules/core-
 __webpack_require__(/*! ../../modules/esnext.map.upsert */ "./node_modules/core-js-pure/modules/esnext.map.upsert.js");
 // TODO: remove from `core-js@4`
 __webpack_require__(/*! ../../modules/esnext.map.update-or-insert */ "./node_modules/core-js-pure/modules/esnext.map.update-or-insert.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js-pure/features/object/define-property.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js-pure/features/object/define-property.js ***!
+  \**********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../actual/object/define-property */ "./node_modules/core-js-pure/actual/object/define-property.js");
 
 module.exports = parent;
 
@@ -4378,6 +4434,26 @@ collection('Map', function (init) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/modules/es.object.define-property.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/core-js-pure/modules/es.object.define-property.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js-pure/internals/export.js");
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js-pure/internals/descriptors.js");
+var defineProperty = (__webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js-pure/internals/object-define-property.js").f);
+
+// `Object.defineProperty` method
+// https://tc39.es/ecma262/#sec-object.defineproperty
+// eslint-disable-next-line es/no-object-defineproperty -- safe
+$({ target: 'Object', stat: true, forced: Object.defineProperty !== defineProperty, sham: !DESCRIPTORS }, {
+  defineProperty: defineProperty
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/modules/es.object.to-string.js":
 /*!******************************************************************!*\
   !*** ./node_modules/core-js-pure/modules/es.object.to-string.js ***!
@@ -5695,6 +5771,19 @@ module.exports = parent;
 
 /***/ }),
 
+/***/ "./node_modules/core-js-pure/stable/object/define-property.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js-pure/stable/object/define-property.js ***!
+  \********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var parent = __webpack_require__(/*! ../../es/object/define-property */ "./node_modules/core-js-pure/es/object/define-property.js");
+
+module.exports = parent;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js-pure/stable/promise/index.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js-pure/stable/promise/index.js ***!
@@ -5706,6 +5795,63 @@ __webpack_require__(/*! ../../modules/web.dom-collections.iterator */ "./node_mo
 
 module.exports = parent;
 
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _classCallCheck)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _createClass)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/object/define-property */ "./node_modules/@babel/runtime-corejs3/core-js/object/define-property.js");
+
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+
+    _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+
+  _babel_runtime_corejs3_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__(Constructor, "prototype", {
+    writable: false
+  });
+
+  return Constructor;
+}
 
 /***/ })
 
@@ -5797,26 +5943,41 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/promise */ "./node_modules/@babel/runtime-corejs3/core-js/promise.js");
-/* harmony import */ var _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/map */ "./node_modules/@babel/runtime-corejs3/core-js/map.js");
-/* harmony import */ var _babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sub */ "./src/sub.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/classCallCheck */ "./node_modules/@babel/runtime-corejs3/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs3/helpers/createClass */ "./node_modules/@babel/runtime-corejs3/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/promise */ "./node_modules/@babel/runtime-corejs3/core-js/promise.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime-corejs3/core-js/map */ "./node_modules/@babel/runtime-corejs3/core-js/map.js");
+/* harmony import */ var _babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sub */ "./src/sub.js");
 
 
 
 
-var executor = function executor() {
-  _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_0___default().resolve("promiseTest").then(function (result) {
-    console.log(result);
-  });
 
-  var map = new (_babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_1___default())();
-  map.set("key", "value");
-  (0,_sub__WEBPACK_IMPORTED_MODULE_2__.sub)();
-};
 
-executor();
+var executor = /*#__PURE__*/function () {
+  function executor() {
+    (0,_babel_runtime_corejs3_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, executor);
+
+    _babel_runtime_corejs3_core_js_promise__WEBPACK_IMPORTED_MODULE_2___default().resolve("main constructor called").then(function (result) {
+      console.log(result);
+    });
+  }
+
+  (0,_babel_runtime_corejs3_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(executor, [{
+    key: "execute",
+    value: function execute() {
+      var map = new (_babel_runtime_corejs3_core_js_map__WEBPACK_IMPORTED_MODULE_3___default())();
+      map.set("key", "sub module called");
+      (0,_sub__WEBPACK_IMPORTED_MODULE_4__.sub)(map.get("key"));
+    }
+  }]);
+
+  return executor;
+}();
+
+new executor().execute();
 })();
 
 /******/ })()

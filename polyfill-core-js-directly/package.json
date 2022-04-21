@@ -1,0 +1,27 @@
+{
+  "name": "polyfill-core-js-directly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "npm-run-all lint:*",
+    "lint:prettier": "prettier --write 'src/**/*.{js,ts}'",
+    "build": "npm-run-all build:*",
+    "build:core-js-full": "webpack --config webpack.polyfill-core-js-full.config.js --mode development",
+    "build:core-js-actual": "webpack --config webpack.polyfill-core-js-actual.config.js --mode development",
+    "build:core-js-stable": "webpack --config webpack.polyfill-core-js-stable.config.js --mode development",
+    "build:core-js-es": "webpack --config webpack.polyfill-core-js-es.config.js --mode development",
+    "execute": "npm-run-all execute:*",
+    "execute:core-js-full": "node ./dist/polyfill-core-js-full/main.js",
+    "execute:core-js-actual": "node ./dist/polyfill-core-js-actual/main.js",
+    "execute:core-js-stable": "node ./dist/polyfill-core-js-stable/main.js",
+    "execute:core-js-es": "node ./dist/polyfill-core-js-es/main.js"
+  },
+  "devDependencies": {
+    "core-js": "^3.22.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

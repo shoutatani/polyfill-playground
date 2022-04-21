@@ -1,4 +1,4 @@
 export const sub = (value) =>
-  Promise.resolve(value).then((result) => {
+  Promise.resolve(value.toString()).then((result) => {
     console.log(result);
   });
