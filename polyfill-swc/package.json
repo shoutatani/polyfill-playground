@@ -1,0 +1,25 @@
+{
+  "name": "polyfill-core-js-directly",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "npm-run-all lint:*",
+    "lint:prettier": "prettier --write 'src/**/*.{js,ts}'",
+    "build": "npm-run-all build:*",
+    "build:swc-with-ie-11": "webpack --config webpack.polyfill-swc-with-ie-11.config.js --mode development",
+    "build:swc-without-ie-11": "webpack --config webpack.polyfill-swc-without-ie-11.config.js --mode development",
+    "execute": "npm-run-all execute:*",
+    "execute:swc-with-ie-11": "node ./dist/polyfill-swc-with-ie-11/main.js",
+    "execute:swc-without-ie-11": "node ./dist/polyfill-swc-without-ie-11/main.js"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.2.170",
+    "core-js": "^3.21.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.1",
+    "swc-loader": "^0.2.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

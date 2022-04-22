@@ -1,6 +1,6 @@
 # 何のためのディレクトリか
 
-* Babelを使えば内部で [`core-js`](https://github.com/zloirock/core-js) を使ってPolyfillが行われるが、Babelを使わずにcore-jsを直接使った場合にはどのようにPolyfillされるのか、その成果物を実際に見てみたかったがために作ったディレクトリです。
+* Babelを使えば内部で [`core-js`](https://github.com/zloirock/core-js) を使ってPolyfillが行われるが、Babelを使わずにcore-jsを直接使った場合にはどのようにPolyfillされるのか、その成果物を実際に見てみたかったがために作ったディレクトリ。
 
 # 何が観測できたのか
 
