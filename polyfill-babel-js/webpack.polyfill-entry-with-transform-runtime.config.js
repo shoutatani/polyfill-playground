@@ -1,10 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: [
-    "./src/polyfill.js",
-    "./src/index.js"
-  ],
+  entry: ["./src/polyfill.js", "./src/index.js"],
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist/entry-with-transform-runtime"),
@@ -18,23 +15,19 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            targets: {
+              ie: "11",
+            },
             presets: [
               [
                 "@babel/preset-env",
                 {
-                  targets: {
-                    ie: "11",
-                  },
                   useBuiltIns: "entry",
                   corejs: "3.21",
                 },
               ],
             ],
-            plugins: [
-              [
-                "@babel/plugin-transform-runtime"
-              ]
-            ]
+            plugins: ["@babel/plugin-transform-runtime"],
           },
         },
       },

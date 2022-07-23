@@ -15,27 +15,21 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: [
-              [
-                "@babel/preset-env",
-                {
-                  targets: {
-                    ie: "11",
-                  }
-                },
-              ],
-            ],
+            targets: {
+              ie: "11",
+            },
+            presets: ["@babel/preset-env"],
             plugins: [
               [
                 "@babel/plugin-transform-runtime",
                 {
-                  "corejs": {
+                  corejs: {
                     version: 3,
-                    proposals: true
-                  }
-                }
-              ]
-            ]
+                    proposals: true,
+                  },
+                },
+              ],
+            ],
           },
         },
       },

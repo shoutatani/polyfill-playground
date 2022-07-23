@@ -15,23 +15,19 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            targets: {
+              ie: "11",
+            },
             presets: [
               [
                 "@babel/preset-env",
                 {
-                  targets: {
-                    ie: "11",
-                  },
                   useBuiltIns: "usage",
                   corejs: "3.21",
                 },
               ],
             ],
-            plugins: [
-              [
-                "@babel/plugin-transform-runtime"
-              ]
-            ]
+            plugins: ["@babel/plugin-transform-runtime"],
           },
         },
       },
